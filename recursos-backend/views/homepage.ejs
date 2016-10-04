@@ -1,11 +1,11 @@
 <div ng-controller="ToolbarCtrl">
-  <md-toolbar class="md-hue-2" ng-hide="$state.current.name == 'index' || $state.current.name == 'register'">
+  <md-toolbar class="md-hue-2" ng-hide="$state.current.name == 'login' || $state.current.name == 'register'">
     <div class="md-toolbar-tools">
       <md-button class="md-icon-button" aria-label="Menu" ng-click="abrirSidenav()">
         <md-icon md-svg-icon="menu"></md-icon>
       </md-button>
       <h2>
-        <span>Book It</span>
+        <span>Recursos Humanos</span>
       </h2>
       <span flex></span>
       <md-menu md-position-mode="target-right target" md-offset="0 -10">
@@ -30,18 +30,28 @@
       md-component-id="left"
       md-whiteframe="4">
     <md-toolbar class="md-theme-indigo">
-      <h1 class="md-toolbar-tools">Book It</h1>
+      <h1 class="md-toolbar-tools">Recursos Humanos</h1>
     </md-toolbar>
     <md-content layout-padding>
       <md-list>
-        <md-subheader>Proyectos</md-subheader>
+        <md-subheader>Captura de datos</md-subheader>
         <md-list-item ui-sref="dashboard" class="noright">
           <md-icon md-svg-icon="view-dashboard"></md-icon>
-          <p>Dashboard</p>
+          <p>Capturar Formatos</p>
         </md-list-item>
         <md-list-item ui-sref="project-list" class="noright">
           <md-icon md-svg-icon="book"></md-icon>
           <p>Mis Proyectos</p>
+        </md-list-item>
+        <md-divider></md-divider>
+        <md-subheader>Administración</md-subheader>
+        <md-list-item ui-sref="manage-users" class="noright">
+          <md-icon md-svg-icon="account-multiple"></md-icon>
+          <p>Usuarios</p>
+        </md-list-item>
+        <md-list-item ui-sref="manage-empresas" class="noright">
+          <md-icon md-svg-icon="castle"></md-icon>
+          <p>Empresas</p>
         </md-list-item>
         <md-divider></md-divider>
         <md-subheader>Configuración</md-subheader>
@@ -52,20 +62,6 @@
         <md-list-item ng-click="rootLogout()" class="noright">
           <md-icon md-svg-icon="logout"></md-icon>
           <p>Cerrar Sesión</p>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-subheader>Administración</md-subheader>
-        <md-list-item ui-sref="manage-users" class="noright">
-          <md-icon md-svg-icon="account-multiple"></md-icon>
-          <p>Usuarios</p>
-        </md-list-item>
-        <md-list-item ui-sref="manage-projects" class="noright">
-          <md-icon md-svg-icon="book-open-page-variant"></md-icon>
-          <p>Proyectos</p>
-        </md-list-item>
-        <md-list-item ui-sref="text-editor-test" class="noright">
-          <md-icon md-svg-icon="book-open-page-variant"></md-icon>
-          <p>Editor de Texto Test</p>
         </md-list-item>
       <md-list>
     </md-content>

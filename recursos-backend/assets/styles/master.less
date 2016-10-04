@@ -1,0 +1,76 @@
+.login-container {
+  margin-top: 2em;
+}
+.login-header {
+  padding-left: 1em;
+  color: #283593;
+}
+
+//Colors
+@md-green: rgb(46, 125, 50);
+@md-indigo: rgb(40,53,147);
+@md-lightblue: rgb(2,119,189);
+@md-bluegrey: rgb(55,71,79);
+
+//Pagination
+.pagination li {
+  display: inline-block;
+  border-radius: 2px;
+  text-align: center;
+  vertical-align: top;
+  height: 30px;
+}
+
+.pagination li a {
+  color: #444;
+  display: inline-block;
+  font-size: 1.2rem;
+  padding: 0 10px;
+  line-height: 30px;
+  text-decoration: none;
+}
+
+.pagination li.active a {
+  color: #fff;
+}
+
+.pagination li.active {
+  background-color: @md-indigo;
+}
+
+.pagination li.disabled a {
+  cursor: default;
+  color: @md-bluegrey;
+}
+
+.pagination li i {
+  font-size: 2rem;
+}
+
+.pagination li.pages ul li {
+  display: inline-block;
+  float: none;
+}
+
+@media only screen and (max-width: 992px) {
+  .pagination {
+    width: 100%;
+  }
+  .pagination li.prev,
+  .pagination li.next {
+    width: 10%;
+  }
+  .pagination li.pages {
+    width: 80%;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
+
+.center-pagination {
+  text-align: center;
+}
+
+.no-padding {
+  padding: 0;
+}
