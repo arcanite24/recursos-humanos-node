@@ -34,4 +34,6 @@ app.config(function($urlRouterProvider, $stateProvider, $locationProvider) {
   .state('main', {url: '/dashboard', templateUrl: 'templates/dashboard/main.html', controller: 'MainCtrl'})
   
   .state('manage-users', {url: '/users/list', templateUrl: 'templates/users/list.html', controller: 'UserCtrl'})
+  
+  .state('manage-empresas', {url: '/empresa/list', templateUrl: 'templates/empresas/list.html', controller: 'EmpresaCtrl'})
 });

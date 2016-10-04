@@ -23,17 +23,9 @@ app.controller('UserCtrl', function ($scope, $state, $sails, $help) {
       $scope.allUsers = [];
     });
   }
-      
-  $scope.loadEmpresas = function () {
-    $sails.get('/api/empresa').then(function (data) {
-      $scope.empresas = data;
-    }).catch(function (err) {
-      $scope.empresas = [];
-    });
-  }
   
   $scope.editUser = function (user) {
-    $help.modalSimple('/templates/modal/editUser.html', function($scope, $mdDialog) {
+    $help.modalSimple('/templates/modal/editUser.html', function($scope, $mdDialog, $state) {
       $scope.newuserdata = user;
       $scope.borrarUser = function (id) {
         $scope.loader = true;
@@ -41,6 +33,14 @@ app.controller('UserCtrl', function ($scope, $state, $sails, $help) {
           $scope.loader = false;
           $state.reload();
           $mdDialog.hide();
+        });
+      }
+      
+      $scope.loadEmpresas = function () {
+        $sails.get('/api/empresa').then(function (data) {
+          $scope.empresas = data.data;
+        }).catch(function (err) {
+          $scope.empresas = [];
         });
       }
       
@@ -58,6 +58,7 @@ app.controller('UserCtrl', function ($scope, $state, $sails, $help) {
           swal('¡Exito!', 'Usuario editado correctamente.', 'success');
           $scope.loader = false;
           $mdDialog.hide();
+          $state.reload();
         });
       }
     });
@@ -77,6 +78,14 @@ app.controller('UserCtrl', function ($scope, $state, $sails, $help) {
           $state.reload();
         }).catch(function () {
           swal('!Error!', 'Error al crear usuario, verifica los datos ingresados.', 'error');
+        });
+      }
+      
+      $scope.loadEmpresas = function () {
+        $sails.get('/api/empresa').then(function (data) {
+          $scope.empresas = data.data;
+        }).catch(function (err) {
+          $scope.empresas = [];
         });
       }
       

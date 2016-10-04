@@ -1,0 +1,21 @@
+<div layout layout-padding>
+  <div flex="100">
+    <form ng-submit="addEmpresa(newempresadata)">
+      <div flex="100">
+        <h3>Agregar Empresa</h3>
+        <md-progress-linear md-mode="indeterminate" ng-show="loader"></md-progress-linear>
+      </div>
+      <div flex="100" class="login-inputs" layout="row" layout-align="center center" layout-wrap layout-padding>
+        <md-input-container flex="100">
+          <label>Nombre</label>
+          <input ng-model="newempresadata.name" type="text" required>
+        </md-input-container>
+        <div flex-gt-sm="100" flex-sm="100" layout>
+          <span flex></span>
+          <md-button class="md-raised md-accent" type="button" ng-click="closeModal()">Cerrar</md-button>
+          <md-button class="md-raised md-primary" type="submit">Agregar</md-button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
