@@ -12,6 +12,11 @@ app.controller('AuthCtrl', function ($state, $scope, $rootScope, $sails, CONFIG)
         $rootScope._user = dataPromise.data.user;
         $rootScope.token = dataPromise.data.token;
         $rootScope.logeado = true;
+        
+        //Local Storage
+        localStorage.setItem('_user', JSON.stringify($rootScope._user));
+        localStorage.setItem('token', $rootScope.token);
+        
         $state.go('main');
       }
     }).catch(function (err) {

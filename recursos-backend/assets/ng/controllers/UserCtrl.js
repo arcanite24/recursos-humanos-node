@@ -1,5 +1,14 @@
 app.controller('UserCtrl', function ($scope, $state, $sails, $help) {
   
+  $scope.loadUserProfile = function (id) {
+    $sails.get('/api/user/'+id).then(function(data) {
+      $scope.userProfile = data.data;
+    }).catch(function (err) {
+      swal('¡Error!', 'Falló la carga del usuario.', 'error');
+      console.log(err)
+    });
+  }
+  
   $scope.loadAllUsers = function () {
         
     $scope.allUsersTableConfig = {

@@ -1,0 +1,193 @@
+<form ng-submit="crearFormatoActualizacion(actDatos)">
+  <h3 style="margin-left: 1em;">Actualización de Datos</h3>
+<div layout="row" layout-padding layout-align="center center" layout-wrap class="md-whiteframe-1dp" style="margin: 1em; padding: 0 1em 0;">
+  <md-input-container flex="100" ng-init="loadEmpresas()">
+    <md-select ng-model="actDatos.empresa" placeholder="Selecciona una empresa...">
+      <md-option ng-value="empresa.id" ng-repeat="empresa in empresasSelect">{{ empresa.name }}</md-option>
+    </md-select>
+  </md-input-container>
+  <md-input-container flex-sm="100" flex-gt-sm="50">
+    <label>Sucursal</label>
+    <input type="text" ng-model="actDatos.sucursal" required>
+  </md-input-container>
+  <md-input-container flex-sm="100" flex-gt-sm="50">
+    <label>Informe para:</label>
+    <input type="text" ng-model="actDatos.para" required>
+  </md-input-container>
+  <md-input-container flex-sm="100" flex-gt-sm="50">
+    <label>Dirección:</label>
+    <input type="text" ng-model="actDatos.direccion" required>
+  </md-input-container>
+  <md-input-container flex-sm="100" flex-gt-sm="50">
+    <label>Nombre del investigado:</label>
+    <input type="text" ng-model="actDatos.nombreInvestigado" required>
+  </md-input-container>
+  <md-input-container flex-sm="100" flex-gt-sm="50">
+    <label>Resultado:</label>
+    <input type="text" ng-model="actDatos.resultado">
+  </md-input-container>
+</div>
+<div layout="row" layout-padding layout-align="center center" layout-wrap class="md-whiteframe-1dp" style="margin: 1em; padding: 0 1em 0;">
+  <div flex="100">
+    <h4>¿Quién atendió?</h4>
+  </div>
+  <md-input-container flex-sm="100" flex-gt-sm="33">
+    <label>Fecha de la visita</label>
+    <md-datepicker ng-model="actDatos.fechaVisita"></md-datepicker>
+  </md-input-container>
+  <md-input-container flex-sm="100" flex-gt-sm="33">
+    <label>Hora</label>
+    <input mdc-datetime-picker="" date="false" time="true" type="text" id="time" short-time="true"
+    placeholder="Hora" format="hh:mm a" ng-model="actDatos.horaVisita" class="md-input">
+  </md-input-container>
+  <md-input-container flex-sm="100" flex-gt-sm="33">
+    <label>Nombre de quien atendió la visita</label>
+    <input type="text" ng-model="actDatos.nombreAtendio" required>
+  </md-input-container>
+  <div flex="100" layout layout-align="center center" layout-wrap>
+    <div flex="100">
+      <signature-pad accept="accept" clear="clear" height="120" width="100"></signature-pad>
+    </div>
+    <div flex="100" style="text-align: center">
+      <md-button ng-click="clear()" class="md-primary md-raised">Limpiar Firma</md-button>
+    </div>
+  </div>
+</div>
+<!-- Datos generales -->
+<div layout="row" layout-padding layout-align="center center" layout-wrap class="md-whiteframe-1dp" style="margin: 1em; padding: 0 1em 0;">
+  <div flex="100">
+    <h4>1.-Datos Generales</h4>
+  </div>
+  <md-input-container flex-sm="100" flex-gt-sm="70">
+    <label>Nombre:</label>
+    <input type="text" ng-model="actDatos.datosGenerales.nombre" required>
+  </md-input-container>
+  <md-input-container flex-sm="100" flex-gt-sm="30">
+    <label>Nacionalidad:</label>
+    <input type="text" ng-model="actDatos.datosGenerales.nacionalidad">
+  </md-input-container>
+  <md-input-container flex-sm="100" flex-gt-sm="60">
+    <label>Calle:</label>
+    <input type="text" ng-model="actDatos.datosGenerales.calle" required>
+  </md-input-container>
+  <md-input-container flex-sm="100" flex-gt-sm="20">
+    <label>Número:</label>
+    <input type="text" ng-model="actDatos.datosGenerales.numeroExt" required>
+  </md-input-container>
+  <md-input-container flex-sm="100" flex-gt-sm="20">
+    <label>Interior:</label>
+    <input type="text" ng-model="actDatos.datosGenerales.numeroInt">
+  </md-input-container>
+  <md-input-container flex-sm="100" flex-gt-sm="60">
+    <label>Colonia:</label>
+    <input type="text" ng-model="actDatos.datosGenerales.colonia" required>
+  </md-input-container>
+  <md-input-container flex-sm="100" flex-gt-sm="40">
+    <label>Municipio/Delegación:</label>
+    <input type="text" ng-model="actDatos.datosGenerales.delegacion">
+  </md-input-container>
+  <md-input-container flex-sm="100" flex-gt-sm="25">
+    <md-select ng-model="actDatos.datosGenerales.estado" placeholder="Estado">
+      <md-option ng-value="estado.Nombre" ng-repeat="estado in estadosList">{{ estado.Nombre }}</md-option>
+    </md-select>
+  </md-input-container>
+  <md-input-container flex-sm="100" flex-gt-sm="25">
+    <label>Código Postal:</label>
+    <input type="text" ng-model="actDatos.datosGenerales.cp">
+  </md-input-container>
+  <md-input-container flex-sm="100" flex-gt-sm="25">
+    <label>Teléfono:</label>
+    <input type="text" ng-model="actDatos.datosGenerales.telefono">
+  </md-input-container>
+  <md-input-container flex-sm="100" flex-gt-sm="25">
+    <label>Celular:</label>
+    <input type="text" ng-model="actDatos.datosGenerales.celular">
+  </md-input-container>
+  <md-input-container flex-sm="100" flex-gt-sm="50">
+    <label>Entre que calles:</label>
+    <input type="text" ng-model="actDatos.datosGenerales.entreCalles">
+  </md-input-container>
+  <md-input-container flex-sm="100" flex-gt-sm="50">
+    <label>Tiempo de residencia:</label>
+    <input type="text" ng-model="actDatos.datosGenerales.tiempoResidencia">
+  </md-input-container>
+  <md-input-container flex-sm="100" flex-gt-sm="20">
+    <label>Edad:</label>
+    <input type="number" ng-model="actDatos.datosGenerales.edad" min="1" max="110" disabled>
+  </md-input-container>
+  <md-input-container flex-sm="100" flex-gt-sm="40">
+    <label>Fecha de Nacimiento:</label>
+    <md-datepicker ng-model="actDatos.datosGenerales.fechaNacimiento" ng-change="calcularEdad(actDatos.datosGenerales.fechaNacimiento)"></md-datepicker>
+  </md-input-container>
+  <md-input-container flex-sm="100" flex-gt-sm="40">
+    <label>Lugar de nacimiento:</label>
+    <input type="text" ng-model="actDatos.datosGenerales.lugarNacimiento">
+  </md-input-container>
+  <md-radio-group ng-model="actDatos.datosGenerales.estadoCivil" flex="100">
+    <div layout="row" layout-align="center center" layout-wrap>
+      <div flex="100" style="margin-bottom: 1em;">
+        <label>Estado Civil:</label>
+      </div>
+      <div flex-sm="50" flex-gt-sm="33">
+        <md-radio-button value="Soltero">Soltero</md-radio-button>
+      </div>
+      <div flex-sm="50" flex-gt-sm="33">
+        <md-radio-button value="Divorciado">Divorciado</md-radio-button>
+      </div>
+      <div flex-sm="50" flex-gt-sm="33">
+        <md-radio-button value="Casado">Casado</md-radio-button>
+      </div>
+      <div flex-sm="50" flex-gt-sm="33">
+        <md-radio-button value="Unión Libre">Unión Libre</md-radio-button>
+      </div>
+      <div flex-sm="50" flex-gt-sm="33">
+        <md-radio-button value="Separado">Separado</md-radio-button>
+      </div>
+      <div flex-sm="50" flex-gt-sm="33">
+        <md-radio-button value="Viudo">Viudo</md-radio-button>
+      </div>
+    </div>
+  </md-radio-group>
+</div>
+<!-- Salud -->
+<div layout="row" layout-padding layout-align="center center" layout-wrap class="md-whiteframe-1dp" style="margin: 1em; padding: 0 1em 0;">
+  <div flex="100">
+    <h4>2.-Salud</h4>
+  </div>
+  <md-input-container flex-sm="100" flex-gt-sm="50">
+    <label>Estatura: (Metros)</label>
+    <input type="number" ng-model="actDatos.salud.estatura" min="1" max="3" step="0.1" required>
+  </md-input-container>
+  <md-input-container flex-sm="100" flex-gt-sm="50">
+    <label>Peso: (Kilogramos)</label>
+    <input type="number" ng-model="actDatos.salud.peso" min="1" max="300" step="0.1" required>
+  </md-input-container>
+  <md-radio-group ng-model="actDatos.salud.enfermedadesTipo" flex="100">
+    <div layout="row" layout-align="center center" layout-wrap>
+      <div flex="100" style="margin-bottom: 1em;">
+        <label>Enfermedades: {{actDatos.datosGenerales.enfermedadesTipo}}</label>
+      </div>
+      <div flex-sm="50" flex-gt-sm="33">
+        <md-radio-button value="Corazón">Corazón</md-radio-button>
+      </div>
+      <div flex-sm="50" flex-gt-sm="33">
+        <md-radio-button value="Cáncer">Cáncer</md-radio-button>
+      </div>
+      <div flex-sm="50" flex-gt-sm="33">
+        <md-radio-button value="Presión">Presión</md-radio-button>
+      </div>
+      <div flex="33">
+        <md-radio-button value="Diabetes">Diabetes</md-radio-button>
+      </div>
+      <div flex="33">
+        <md-radio-button value="Otra">Otra</md-radio-button>
+      </div>
+      <md-input-group flex="33" ng-show="actDatos.salud.enfermedadesTipo == 'Otra'">
+        <label>Especificar:</label>
+        <input type="text" ng-model="actDatos.salud.enfermedadEspecifica">
+      </md-input-group>
+    </div>
+  </md-radio-group>
+  <div flex="100"></div>
+</div>
+</form>
